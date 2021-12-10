@@ -1,5 +1,3 @@
-const css = require('./index.css');
-
 const canvas = document.getElementById('chess');
 const context = canvas.getContext('2d');
 const winner = document.querySelector('.winner');
