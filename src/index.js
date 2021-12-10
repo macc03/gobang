@@ -171,6 +171,7 @@ let cross_win = (x, y, arr) => {
 // 悔棋
 let toBack = () => {
   let player_arr = !p1 ? player1_arr.slice(-1) : player2_arr.slice(-1);
+  console.log(player_arr);
   if (player_arr.length > 0) {
     let [{x, y}] = player_arr;
     context.clearRect((x) * 30, (y) * 30, 30, 30);
@@ -183,9 +184,9 @@ let toBack = () => {
     context.lineTo((x + 1) * 30, y * 30 + 15);
 
     context.stroke();
-
-    !p1 ? p1_return_arr.push(player1_arr.slice(-1)) : p1_return_arr.push(player1_arr.slice(-1));
-    !p1 ? player1_arr.splice(-1) : player1_arr.splice(-1);
+    chessBoard[x][y] = 0;
+    !p1 ? p1_return_arr.push(player1_arr) : p1_return_arr.push(player1_arr);
+    !p1 ? player1_arr.splice(-1) : player2_arr.splice(-1);
 
     p1 =  !p1
   } else {
